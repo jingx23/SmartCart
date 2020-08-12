@@ -140,6 +140,7 @@
 				4362C78024E497F200C7058B /* Sources */,
 				4362C78124E497F200C7058B /* Frameworks */,
 				4362C78224E497F200C7058B /* Resources */,
+				43738B4E24E4995200EA0214 /* Swift Linter & Formatter */,
 			);
 			buildRules = (
 			);
@@ -253,6 +254,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		43738B4E24E4995200EA0214 /* Swift Linter & Formatter */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Swift Linter & Formatter";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "mint run swiftlint\nmint run swiftformat \"$SRCROOT\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4362C78024E497F200C7058B /* Sources */ = {
