@@ -13,6 +13,7 @@
 		4362C78F24E497F300C7058B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4362C78E24E497F300C7058B /* Preview Assets.xcassets */; };
 		4362C79A24E497F300C7058B /* SmartCartTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4362C79924E497F300C7058B /* SmartCartTests.swift */; };
 		4362C7A524E497F300C7058B /* SmartCartUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4362C7A424E497F300C7058B /* SmartCartUITests.swift */; };
+		43738B5424E4C55500EA0214 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43738B5324E4C55500EA0214 /* LocationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		4362C7A024E497F300C7058B /* SmartCartUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartCartUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4362C7A424E497F300C7058B /* SmartCartUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartCartUITests.swift; sourceTree = "<group>"; };
 		4362C7A624E497F300C7058B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		43738B5324E4C55500EA0214 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				4362C78B24E497F300C7058B /* Assets.xcassets */,
 				4362C79024E497F300C7058B /* Info.plist */,
 				4362C78D24E497F300C7058B /* Preview Content */,
+				43738B5324E4C55500EA0214 /* LocationManager.swift */,
 			);
 			path = SmartCart;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 			files = (
 				4362C78A24E497F200C7058B /* ContentView.swift in Sources */,
 				4362C78824E497F200C7058B /* SmartCartApp.swift in Sources */,
+				43738B5424E4C55500EA0214 /* LocationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
