@@ -39,4 +39,8 @@ struct Market {
 
         return sortedItems
     }
+
+    mutating func clear() {
+        self.items = []
+    }
 }
