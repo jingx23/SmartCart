@@ -21,7 +21,7 @@ class SmartCartTests: XCTestCase {
     func testSortingShoppingListWithSameAmount() throws {
         let unsortedItems = [ShoppingItem(title: "Mais"), ShoppingItem(title: "Bananen"),
                              ShoppingItem(title: "Joghurt")]
-        var coopKreuzlingen = Market(long: 9.1733, lat: 47.6506)
+        var coopKreuzlingen = Market(name: "Coop Kreuzlingen", long: 9.1733, lat: 47.6506)
         coopKreuzlingen.add(item: unsortedItems[2])
         coopKreuzlingen.add(item: unsortedItems[1])
         coopKreuzlingen.add(item: unsortedItems[0])
@@ -38,7 +38,7 @@ class SmartCartTests: XCTestCase {
     func testSortingShoppingListOneMissing() throws {
         let unsortedItems = [ShoppingItem(title: "Mais"), ShoppingItem(title: "Bananen"),
                              ShoppingItem(title: "Joghurt")]
-        var coopKreuzlingen = Market(long: 9.1733, lat: 47.6506)
+        var coopKreuzlingen = Market(name: "Coop Kreuzlingen", long: 9.1733, lat: 47.6506)
         //We add only 2 Items in the market -> last on
         coopKreuzlingen.add(item: unsortedItems[2]) //Add Joghurt
         coopKreuzlingen.add(item: unsortedItems[0]) //Add Mais

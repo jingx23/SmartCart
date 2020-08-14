@@ -11,8 +11,10 @@ struct Market {
     private(set) var items: [ShoppingItem] = []
     private(set) var long: Double = 0.0
     private(set) var lat: Double = 0.0
+    private(set) var name: String
 
-    init(long: Double, lat: Double) {
+    init(name: String, long: Double, lat: Double) {
+        self.name = name
         self.long = long
         self.lat = lat
     }
