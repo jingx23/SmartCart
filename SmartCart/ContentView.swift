@@ -9,31 +9,40 @@ import CoreLocation
 import SwiftUI
 
 struct ContentView: View {
-    @ObservedObject var locationManager: LocationManager
-
-    init() {
-        self.locationManager = LocationManager()
-        self.locationManager.onAuthorizationStatusDenied = {
-            print("Access Denied")
-        }
-
-        let geofenceRegionCenter = CLLocationCoordinate2DMake(47.6506, 9.1733)
-        let geofenceRegion = CLCircularRegion(center: geofenceRegionCenter,
-                                              radius: 20,
-                                              identifier: "UniqueIdentifier")
-        geofenceRegion.notifyOnEntry = true
-        geofenceRegion.notifyOnExit = true
-        self.locationManager.startMonitoring(for: [geofenceRegion])
-    }
+    @ObservedObject private var shoppingListViewModel: ShoppingListViewModel = ShoppingListViewModel()
 
     var body: some View {
-        switch self.locationManager.regionState {
-        case .enter(region: _):
-            Text("Enter").padding()
-        case .leave(region: _):
-            Text("Leave").padding()
-        case .none:
-            Text("None").padding()
+        GeometryReader { geometry in
+            VStack {
+                HStack {
+                    Text(self.shoppingListViewModel.geoMarket?.name ?? "Ort unbekannt")
+                        .font(.largeTitle)
+                        .frame(width: geometry.size.width / 2, alignment: .leading)
+                        .padding(.leading, 10)
+                    Spacer()
+                }
+                ScrollView {
+                    LazyVGrid(columns: [GridItem(.adaptive(minimum: 110))], spacing: 10) {
+                        ForEach(self.shoppingListViewModel.shoppingItems ?? [], id: \.self) { item in
+                            VStack {
+                                Image(item.imageName)
+                                    .resizable()
+                                    .renderingMode(.template)
+                                    .foregroundColor(.white)
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 50, height: 50, alignment: .top)
+                                Text(item.title)
+                            }
+                            .frame(width: 110, height: 110)
+                            .background(Color.blue.opacity(0.5))
+                            .cornerRadius(10)
+                            .onTapGesture {
+                                self.shoppingListViewModel.remove(item: item)
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }
