@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct Market {
+class Market {
+    private(set) var id: UUID = UUID()
     private(set) var items: [ShoppingItem] = []
     private(set) var long: Double = 0.0
     private(set) var lat: Double = 0.0
@@ -19,7 +20,7 @@ struct Market {
         self.lat = lat
     }
 
-    mutating func add(item: ShoppingItem) {
+    func add(item: ShoppingItem) {
         self.items.append(item)
     }
 
@@ -28,6 +29,7 @@ struct Market {
         - Returns: Sorted list for the market, items which are not in the market list have the last positions
      */
     func sort(_ unsortedItems: [ShoppingItem]) -> [ShoppingItem] {
+        if self.items.isEmpty { return unsortedItems }
         var sortedItems: [ShoppingItem] = unsortedItems
         sortedItems.sort { (unsortedItem1, unsortedItem2) -> Bool in
             if self.items.firstIndex(of: unsortedItem1) ?? self.items.count > self.items.firstIndex(of: unsortedItem2) ?? self.items.count {
@@ -40,7 +42,7 @@ struct Market {
         return sortedItems
     }
 
-    mutating func clear() {
+    func clear() {
         self.items = []
     }
 }
