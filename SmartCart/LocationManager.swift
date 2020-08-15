@@ -14,11 +14,15 @@ class LocationManager: NSObject, ObservableObject {
 
     public var onAuthorizationStatusDenied: () -> Void = { assertionFailure("not defined onAuthorizationStatusDenied block") }
 
-    public let monitoredRegionChange = PassthroughSubject<MonitoredRegionState?, Never>()
-
     @Published private(set) var regionState: MonitoredRegionState? {
         willSet {
-            monitoredRegionChange.send(regionState)
+            self.objectWillChange.send()
+        }
+    }
+
+    @Published private(set) var location: CLLocation? {
+        willSet {
+            self.objectWillChange.send()
         }
     }
 
@@ -56,8 +60,6 @@ extension LocationManager: CLLocationManagerDelegate {
     // called when user Enters a monitored region
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
         if region is CLCircularRegion {
-            // Do what you want if this information
-            //self.handleEvent(forRegion: region)
             print("enter \(region)")
             self.regionState = .enter(region: region)
         }
@@ -66,8 +68,6 @@ extension LocationManager: CLLocationManagerDelegate {
     // called when user Exits a monitored region
     func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
         if region is CLCircularRegion {
-            // Do what you want if this information
-            //self.handleEvent(forRegion: region)
             print("leave \(region)")
             self.regionState = .leave(region: region)
         }
@@ -78,7 +78,7 @@ extension LocationManager: CLLocationManagerDelegate {
     }
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print("didUpdate")
+        //nothing to implement here
     }
 
 }
