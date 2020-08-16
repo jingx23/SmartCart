@@ -15,3 +15,5 @@ _**Solution:**_ With SmartCart you can add the stores by their geolocation to th
 
 ### How it currently looks like
 ![Example gif](images/example.gif)
+
+**Attention:** To run this project, you need Xcode 12 Beta because the target is set to iOS 14 and it´s using some new SwiftUI elements.
