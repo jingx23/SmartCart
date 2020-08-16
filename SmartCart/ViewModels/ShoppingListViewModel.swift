@@ -9,7 +9,7 @@ import Combine
 import CoreLocation
 
 class ShoppingListViewModel: ObservableObject {
-    private static let dummyMarkets: [Market] = [Market(name: "Coop Kreuzlingen", long: 9.1733, lat: 47.6506)]
+    private static let dummyMarkets: [Store] = [Store(name: "Coop Kreuzlingen", long: 9.1733, lat: 47.6506)]
     private static let dummyShoppingItems: [ShoppingItem] = [ShoppingItem(title: "Oliven", imageName: "olives"), ShoppingItem(title: "Thunfisch", imageName: "tuna"), ShoppingItem(title: "Artischocken", imageName: "artichoke"), ShoppingItem(title: "Shrimps", imageName: "shrimp"), ShoppingItem(title: "Milch", imageName: "milk"), ShoppingItem(title: "Masken", imageName: "face-mask"), ShoppingItem(title: "Käse", imageName: "cheese")]
     private let dummyShoppingList = ShoppingList(name: "PoC List", items: ShoppingListViewModel.dummyShoppingItems, markets: ShoppingListViewModel.dummyMarkets)
 
@@ -22,7 +22,7 @@ class ShoppingListViewModel: ObservableObject {
         }
     }
 
-    @Published private(set) var geoMarket: Market? {
+    @Published private(set) var geoMarket: Store? {
         willSet {
             objectWillChange.send()
         }

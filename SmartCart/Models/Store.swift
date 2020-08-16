@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Market {
+class Store {
     private(set) var id: UUID = UUID()
     private(set) var items: [ShoppingItem] = []
     private(set) var long: Double = 0.0

@@ -12,7 +12,7 @@ class SmartCartTests: XCTestCase {
     let unsortedItems = [ShoppingItem(title: "Mais"), ShoppingItem(title: "Bananen"),
                          ShoppingItem(title: "Joghurt")]
 
-    var coopKreuzlingen = Market(name: "Coop Kreuzlingen", long: 9.1733, lat: 47.6506)
+    var coopKreuzlingen = Store(name: "Coop Kreuzlingen", long: 9.1733, lat: 47.6506)
 
     override func setUpWithError() throws {
         coopKreuzlingen.clear()

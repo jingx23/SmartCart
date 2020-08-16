@@ -9,10 +9,10 @@ import Foundation
 
 class ShoppingList {
     private(set) var name: String
-    private(set) var markets: [Market]
+    private(set) var markets: [Store]
     private var items: [ShoppingItem]
 
-    init(name: String, items: [ShoppingItem] = [], markets: [Market] = []) {
+    init(name: String, items: [ShoppingItem] = [], markets: [Store] = []) {
         self.name = name
         self.items = items
         self.markets = markets
@@ -22,18 +22,18 @@ class ShoppingList {
         self.items.append(contentsOf: items)
     }
 
-    func add(markets: [Market]) {
+    func add(markets: [Store]) {
         self.markets.append(contentsOf: markets)
     }
 
-    func list(for market: Market?) -> [ShoppingItem] {
+    func list(for market: Store?) -> [ShoppingItem] {
         if let market = market {
             return market.sort(items)
         }
         return items
     }
 
-    func assign(item: ShoppingItem, to market: Market) {
+    func assign(item: ShoppingItem, to market: Store) {
         if let shoppingListMarket = markets.first(where: { $0.id == market.id }) {
             shoppingListMarket.add(item: item)
         } else {
