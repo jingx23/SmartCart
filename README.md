@@ -14,4 +14,4 @@ _**Solution:**_ With SmartCart you can add the stores by their geolocation to th
 - [ ] UI to create shopping lists
 
 ### How it currently looks like
-![Example gif](Images/example.gif)
+![Example gif](images/example.gif)
