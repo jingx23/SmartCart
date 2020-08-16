@@ -6,7 +6,7 @@ _**Problem:**_ For example, if you visit your favourite grocery store with your 
 
 _**Solution:**_ With SmartCart you can add the stores by their geolocation to the shopping list and if you enter the store your shopping list gets sorted by the order you went through the last time.
 
-### What works and what not in this PoC
+### What works and what not
 - [x] Geofencing for a defined store
 - [x] Store based sorting
 - [ ] UI to add stores  
