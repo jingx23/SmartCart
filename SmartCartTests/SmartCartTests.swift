@@ -52,4 +52,16 @@ class SmartCartTests: XCTestCase {
         XCTAssertEqual(list[2].title, unsortedItems[1].title) //Bananen should be on the last pos because it´s not on the market list
     }
 
+    func testSortingShoppingListEmpty() throws {
+        //Check sorted list has same order as market list
+        XCTAssertTrue(coopKreuzlingen.items.isEmpty)
+        let list = coopKreuzlingen.sort(unsortedItems)
+        XCTAssertEqual(list.count, unsortedItems.count) //We should have a sorted list with the same amount as the unsorted one
+
+        //swiftlint:disable force_unwrapping
+        XCTAssertEqual(unsortedItems.first!.title, list.first!.title)
+        XCTAssertEqual(unsortedItems.last!.title, list.last!.title)
+        //swiftlint:enable force_unwrapping
+    }
+
 }
