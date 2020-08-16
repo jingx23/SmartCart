@@ -36,8 +36,11 @@ struct ContentView: View {
                             .frame(width: 110, height: 110)
                             .background(Color.blue.opacity(0.5))
                             .cornerRadius(10)
+                            .transition(AnyTransition.opacity.combined(with: .scale))
                             .onTapGesture {
-                                self.shoppingListViewModel.remove(item: item)
+                                withAnimation(.linear(duration: 0.5)) {
+                                    self.shoppingListViewModel.remove(item: item)
+                                }
                             }
                         }
                     }
